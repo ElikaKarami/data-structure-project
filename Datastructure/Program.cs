@@ -25,7 +25,6 @@ namespace Datastructure
             for (int i = 0; i < arr.Length; i++)
             {
                 arr[i] = rnd.Next(1,arr.Length*2);
-
             }
         }
         public static void Wait()
@@ -44,24 +43,25 @@ namespace Datastructure
         {
             Console.WriteLine("enter array size");
             int size = Prompt();
-            Stopwatch stopwatch = new Stopwatch();
             int[] values = new int[size];
+            Stopwatch stopwatch = new Stopwatch();
             FillArray(ref values);
-            BinarySearch qs = new BinarySearch(values);
+            Recursive_Quicksort qs = new Recursive_Quicksort(values);
             PreviewArray(qs.Array);
             Wait();
             stopwatch.Start();
-            Console.WriteLine("enter value to search");
-            int value = Prompt();
-            var result = qs.Run(value);
+            //Console.WriteLine("enter value to search");
+            //int value = Prompt();
+            //var result = qs.Run(value);
+            qs.Run(0,values.Length-1);
             stopwatch.Stop();
-            //Console.WriteLine("Array is now sorted:");
-            if (result != -1)
-                Console.WriteLine($"Element is found at index {result.ToString()}");
-            else
-                Console.WriteLine($"Element not found!");
+            Console.WriteLine("Array is now sorted:");
+            //if (result != -1)
+            //    Console.WriteLine($"Element is found at index {result.ToString()}");
+            //else
+            //    Console.WriteLine($"Element not found!");
 
-            //PreviewArray(bs.Array);
+            PreviewArray(qs.Array);
             Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
         }
         static void BinarySearch()
@@ -79,13 +79,13 @@ namespace Datastructure
             int value = Prompt();
             var result = bs.Run(value);
             stopwatch.Stop();
-            //Console.WriteLine("Array is now sorted:");
+            Console.WriteLine("Array is now sorted:");
             if (result != -1)
                 Console.WriteLine($"Element is found at index {result.ToString()}");
             else
                 Console.WriteLine($"Element not found!");
 
-            //PreviewArray(bs.Array);
+            PreviewArray(bs.Array);
             Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
 
         }
@@ -93,24 +93,25 @@ namespace Datastructure
         {
             Console.WriteLine("enter array size");
             int size = Prompt();
-            Stopwatch stopwatch = new Stopwatch();
             int[] values = new int[size];
+            Stopwatch stopwatch = new Stopwatch();
             FillArray(ref values);
-            BinarySearch BS = new BinarySearch(values);
+            BubbleSort BS = new BubbleSort(values);
             PreviewArray(BS.Array);
             Wait();
             stopwatch.Start();
-            Console.WriteLine("enter value to search");
-            int value = Prompt();
-            var result = BS.Run(value);
+            //Console.WriteLine("enter value to search");
+            //int value = Prompt();
+            //var result = qs.Run(value);
+            BS.Run();
             stopwatch.Stop();
-            //Console.WriteLine("Array is now sorted:");
-            if (result != -1)
-                Console.WriteLine($"Element is found at index {result.ToString()}");
-            else
-                Console.WriteLine($"Element not found!");
+            Console.WriteLine("Array is now sorted:");
+            //if (result != -1)
+            //    Console.WriteLine($"Element is found at index {result.ToString()}");
+            //else
+            //    Console.WriteLine($"Element not found!");
 
-            //PreviewArray(bs.Array);
+            PreviewArray(BS.Array);
             Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
         }
         static void LinearSearch()
@@ -153,7 +154,7 @@ namespace Datastructure
                 Console.WriteLine($"Element is found at index {result.ToString()}");
             else
                 Console.WriteLine($"Element not found!");
-                Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
+            Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
         }
         public static int Prompt()
         {
@@ -161,6 +162,7 @@ namespace Datastructure
             while (!int.TryParse(Console.ReadLine(),out input))
             {
                 Console.WriteLine("wrong!enter correct input");
+                //Console.Clear();
             }
 
             return input;

@@ -8,17 +8,17 @@ namespace Datastructure
 {
     public class BubbleSort
     {
-       public int[] Numbers { get;private set; }
+       public int[] Array { get;private set; }
 
     public void Run()
         {
-            for (int i = 0; i < Numbers.Length; i++)
+            for (int i = 0; i < Array.Length; i++)
             {
                 for (int j = 0; j < i; j++)
                 {
-                    if (Numbers[j] > Numbers[i])
+                    if (Array[j] > Array[i])
                     {
-                        BubbleSort.Swap(ref Numbers[j], ref Numbers[i]);
+                        BubbleSort.Swap(ref Array[j], ref Array[i]);
                     }
                 }
             }
@@ -26,7 +26,7 @@ namespace Datastructure
         }
         public BubbleSort(int[] arr)
         {
-            Numbers = arr;
+            Array = arr;
         }
         public static void Swap(ref int x,ref int y)
         {
