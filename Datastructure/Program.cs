@@ -66,27 +66,59 @@ namespace Datastructure
         }
         static void BinarySearch()
         {
-            Console.WriteLine("enter array size");
-            int size = Prompt();
-            Stopwatch stopwatch = new Stopwatch();
-            int[] values = new int[size];
-            FillArray(ref values);
-            BinarySearch bs = new BinarySearch(values);
-            PreviewArray(bs.Array);
-            Wait();
-            stopwatch.Start();
-            Console.WriteLine("enter value to search");
-            int value = Prompt();
-            var result = bs.Run(value);
-            stopwatch.Stop();
-            Console.WriteLine("Array is now sorted:");
-            if (result != -1)
-                Console.WriteLine($"Element is found at index {result.ToString()}");
-            else
-                Console.WriteLine($"Element not found!");
+            int searchInt; // seach key
+            int position; // location of search key in array
 
-            PreviewArray(bs.Array);
-            Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
+            // create array and output it
+            BinaryArray searchArray = new BinaryArray(15);
+            Console.WriteLine(searchArray);
+
+            // prompt and input first int from user
+            Console.Write("Please enter an integer value (-1 to quit): ");
+            searchInt = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            // repeatedly input an integer; -1 terminates the application
+            while (searchInt != -1)
+            {
+                // use binary search to try to find integer
+                position = searchArray.BinarySearch(searchInt);
+
+                // return value of -1 indicates integer was not found
+                if (position == -1)
+                    Console.WriteLine("The integer {0} was not found.\n", searchInt);
+                else
+                    Console.WriteLine("The integer {0} was found in position {1}.\n", searchInt, position);
+
+                // Prompt and input next int from user 
+                Console.WriteLine("Please enter an integer value (-1 to quit): ");
+                searchInt = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+
+            }
+
+            //    Console.WriteLine("enter array size");
+            //    int size = Prompt();
+            //    Stopwatch stopwatch = new Stopwatch();
+            //    int[] values = new int[size];
+            //    FillArray(ref values);
+            //    BinarySearch bs = new BinarySearch(values);
+            //    BubbleSort Elika = new BubbleSort(values);
+            //    PreviewArray(Elika.Array);
+            //    Wait();
+            //    stopwatch.Start();
+            //    Console.WriteLine("enter value to search");
+            //    int value = Prompt();
+            //    var result = bs.Run(value);
+            //    stopwatch.Stop();
+            //    Console.WriteLine("Array is now sorted:");
+            //    if (result != -1)
+            //        Console.WriteLine($"Element is found at index {result.ToString()}");
+            //    else
+            //        Console.WriteLine($"Element not found!");
+
+            //    PreviewArray(bs.Array);
+            //    Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
 
         }
         static void BubbleSort()
@@ -116,45 +148,75 @@ namespace Datastructure
         }
         static void LinearSearch()
         {
-            Console.WriteLine("enter array size");
-            int size = Prompt();
-            Stopwatch stopwatch = new Stopwatch();
-            int[] values = new int[size];
-            FillArray(ref values);
-            BinarySearch ls = new BinarySearch(values);
-            PreviewArray(ls.Array);
-            Wait();
-            stopwatch.Start();
-            Console.WriteLine("enter value to search");
-            int value = Prompt();
-            var result = ls.Run(value);
-            stopwatch.Stop();
-            if (result != -1)
-                Console.WriteLine($"Element is found at index {result.ToString()}");
-            else
-                Console.WriteLine($"Element not found!");
-            Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
-        }
-        static void Hanoi()
-        {
-            Console.WriteLine("enter array size");
-            int size = Prompt();
-            Stopwatch stopwatch = new Stopwatch();
-            int[] values = new int[size];
-            FillArray(ref values);
-            BinarySearch Hanoi = new BinarySearch(values);
-            PreviewArray(Hanoi.Array);
-            Wait();
-            stopwatch.Start();
-            Console.WriteLine("enter value to search");
-            int value = Prompt();
-            var result = Hanoi.Run(value);
-            stopwatch.Stop();
-            if (result != -1)
-                Console.WriteLine($"Element is found at index {result.ToString()}");
-            else
-                Console.WriteLine($"Element not found!");
-            Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
+            int searchInt; // seach key
+            int position; // location of search key in array
+
+            // create array and output it
+            LinearArray searchArray = new LinearArray(15);
+            Console.WriteLine(searchArray);
+
+            // prompt and input first int from user
+            Console.Write("Please enter an integer value (-1 to quit): ");
+            searchInt = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            // repeatedly input an integer; -1 terminates the application
+            while (searchInt != -1)
+            {
+                // use binary search to try to find integer
+                position = searchArray.LinearSearch(searchInt);
+
+                // return value of -1 indicates integer was not found
+                if (position == -1)
+                    Console.WriteLine("The integer {0} was not found.\n", searchInt);
+                else
+                    Console.WriteLine("The integer {0} was found in position {1}.\n", searchInt, position);
+
+                // Prompt and input next int from user 
+                Console.WriteLine("Please enter an integer value (-1 to quit): ");
+                searchInt = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+
+            }
+            //    Console.WriteLine("enter array size");
+            //    int size = Prompt();
+            //    Stopwatch stopwatch = new Stopwatch();
+            //    int[] values = new int[size];
+            //    FillArray(ref values);
+            //    BinarySearch ls = new BinarySearch(values);
+            //    PreviewArray(ls.Array);
+            //    Wait();
+            //    stopwatch.Start();
+            //    Console.WriteLine("enter value to search");
+            //    int value = Prompt();
+            //    var result = ls.Run(value);
+            //    stopwatch.Stop();
+            //    if (result != -1)
+            //        Console.WriteLine($"Element is found at index {result.ToString()}");
+            //    else
+            //        Console.WriteLine($"Element not found!");
+            //    Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
+            //}
+            //static void Hanoi()
+            //{
+            //    Console.WriteLine("enter array size");
+            //    int size = Prompt();
+            //    Stopwatch stopwatch = new Stopwatch();
+            //    int[] values = new int[size];
+            //    FillArray(ref values);
+            //    BinarySearch Hanoi = new BinarySearch(values);
+            //    PreviewArray(Hanoi.Array);
+            //    Wait();
+            //    stopwatch.Start();
+            //    Console.WriteLine("enter value to search");
+            //    int value = Prompt();
+            //    var result = Hanoi.Run(value);
+            //    stopwatch.Stop();
+            //    if (result != -1)
+            //        Console.WriteLine($"Element is found at index {result.ToString()}");
+            //    else
+            //        Console.WriteLine($"Element not found!");
+            //    Console.WriteLine($"Time taken:{stopwatch.Elapsed.TotalMilliseconds}ms");
         }
         public static int Prompt()
         {
@@ -169,7 +231,8 @@ namespace Datastructure
         }
         static void Main(string[] args)
         {
-            while(true)
+
+            while (true)
             {
                 Menu();
                 //Prompt();
@@ -186,10 +249,10 @@ namespace Datastructure
                         BubbleSort();
                         break;
                     case 4:
-                        Hanoi();
+                        LinearSearch();
                         break;
                     case 5:
-                        LinearSearch();
+                        //hanoi();
                         break;
 
 
