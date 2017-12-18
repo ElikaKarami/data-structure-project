@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace Datastructure
 {
+
     class Hanoi
     {
-        public static void TowerofHanoi(int diskCount, int fromPole, int toPole, int viaPole)
+        public void Tower(int number, string a, string b, string c) 
         {
-            if (diskCount == 1)
+            if (number == 1)
             {
-                System.Console.WriteLine("Move disk from pole " + fromPole + " to pole " + toPole);
+                Console.WriteLine("{0}-->{1}", a, c);
+                return;
             }
-            else
-            {
-                TowerofHanoi(diskCount - 1, fromPole, viaPole, toPole);
-                TowerofHanoi(1, fromPole, toPole, viaPole);
-                TowerofHanoi(diskCount - 1, viaPole, toPole, fromPole);
-            }
+            Tower(number - 1, a, c, b);
+            Console.WriteLine("{0}-->{1}", a, c);
+            Tower(number - 1, b, a, c);
         }
+
     }
+
 }

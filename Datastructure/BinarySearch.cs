@@ -8,7 +8,7 @@ namespace Datastructure
 {
     class BinaryArray
     {
-        private int[] data; 
+        private int[] data;
         private static Random generator = new Random();
         public BinaryArray(int size)
         {
@@ -31,7 +31,6 @@ namespace Datastructure
             {
                 Console.Write(RemainingElements(low, high));
 
-                // output spaces for alignment
                 for (int i = 0; i < middle; i++)
                     Console.Write("   ");
 
@@ -48,42 +47,19 @@ namespace Datastructure
 
             return location;
         }
-            public string RemainingElements(int low, int high)
-            {
-                string temporary = string.Empty;
-                for (int i = 0; i < low; i++)
-                    temporary += "    "; 
-                for (int i = low; i <= high; i++)
-                    temporary += data[i] + " ";
-
-                temporary += "\n";
-                return temporary;
-            }
-
+        public string RemainingElements(int low, int high)
+        {
+            string temporary = string.Empty;
+            for (int i = 0; i < low; i++)
+                temporary += "    ";
+            for (int i = low; i <= high; i++)
+                temporary += data[i] + " ";
+            temporary += "\n";
+            return temporary;
+        }
         public override string ToString()
         {
             return RemainingElements(0, data.Length - 1);
         }
-        //int low = 0;
-        //int high = Array.Length - 1;
-        //while (low <= high)
-        //{
-        //    int middle = (low + high) / 2;
-        //    if (value == Array[middle])
-        //    {
-        //        return middle;
-        //    }
-        //    else if (value < Array[middle])
-        //        high = middle - 1;
-        //    else
-        //        low = middle + 1;
-        //}
-        //return -1;
-
-        //public BinarySearch(int[] arr)
-        //{
-        //    Array = arr;
-        //}
-    }    
-   
+    }
 }
